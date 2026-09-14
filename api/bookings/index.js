@@ -1,8 +1,9 @@
 /**
- * /api/bookings/index.js — Create New Booking
+ * /api/bookings/index.js — Create or Update Booking
  * Mẫnthợtóc API
  *
- * Endpoint POST tạo booking mới trong Supabase.
+ * Endpoint POST tạo mới hoặc cập nhật thông tin booking nếu trùng số điện thoại.
+ * Cho phép đặt giờ thoải mái không bị giới hạn slot.
  */
 
 import { supabase } from '../_lib/supabase.js';
@@ -31,44 +32,59 @@ export default async function handler(req, res) {
     const { name, phone, bookingDate, bookingTime, note } = body;
     const phoneClean = phone.trim().replace(/\s/g, '');
 
-    // Thêm booking vào Supabase
-    const { data, error: dbError } = await supabase
+    // 1. Kiểm tra xem sđt này đã có lịch đặt nào trước đó chưa
+    const { data: existing } = await supabase
       .from('bookings')
-      .insert([
-        {
+      .select('id')
+      .eq('phone', phoneClean)
+      .maybeSingle();
+
+    let result;
+
+    if (existing && existing.id) {
+      // 2a. Nếu CÙNG SỐ ĐIỆN THOẠI → Cập nhật lại lịch hẹn mới
+      result = await supabase
+        .from('bookings')
+        .update({
           name: name.trim(),
-          phone: phoneClean,
           booking_date: bookingDate,
           booking_time: bookingTime,
           note: note ? note.trim() : null,
-        },
-      ])
-      .select('id')
-      .single();
+          created_at: new Date().toISOString(),
+        })
+        .eq('id', existing.id)
+        .select('id')
+        .single();
+    } else {
+      // 2b. Nếu SỐ ĐIỆN THOẠI MỚI → Tạo booking mới
+      result = await supabase
+        .from('bookings')
+        .insert([
+          {
+            name: name.trim(),
+            phone: phoneClean,
+            booking_date: bookingDate,
+            booking_time: bookingTime,
+            note: note ? note.trim() : null,
+          },
+        ])
+        .select('id')
+        .single();
+    }
 
-    if (dbError) {
-      // Mã lỗi 23505 của PostgreSQL = Unique Violation (trùng booking_date + booking_time)
-      if (dbError.code === '23505') {
-        return error(
-          res,
-          'Khung giờ này vừa được người khác đặt. Vui lòng chọn khung giờ khác.',
-          409,
-          'BOOKING_SLOT_UNAVAILABLE'
-        );
-      }
-
-      console.error('[API] Database insert error:', dbError);
+    if (result.error) {
+      console.error('[API] Database operation error:', result.error);
       return error(res, 'Không thể lưu lịch đặt. Vui lòng thử lại.', 500, 'DATABASE_ERROR');
     }
 
     return ok(res, {
       success: true,
-      bookingId: data.id,
-      message: 'Đặt lịch thành công!',
-    }, 201);
+      bookingId: result.data.id,
+      message: existing ? 'Cập nhật lịch đặt thành công!' : 'Đặt lịch thành công!',
+    }, 200);
 
   } catch (err) {
-    console.error('[API] Create booking handler error:', err);
+    console.error('[API] Booking handler error:', err);
     return error(res, 'Có lỗi xảy ra trên server.', 500, 'SERVER_ERROR');
   }
 }

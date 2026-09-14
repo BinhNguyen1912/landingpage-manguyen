@@ -4,22 +4,11 @@
  */
 
 import { TIME_SLOTS } from '../config/constants.js';
-import { fetchBookedSlots } from '../services/api.js';
-import { clearFieldError, showFieldError } from '../utils/dom.js';
-
-/**
- * @typedef {Object} SlotPickerState
- * @property {string|null} selectedSlot - Slot đang được chọn
- * @property {string[]}    bookedSlots  - Slot đã bị đặt từ server
- * @property {boolean}     loading      - Đang fetch dữ liệu
- * @property {string|null} currentDate  - Ngày hiện tại đang xem
- */
+import { clearFieldError } from '../utils/dom.js';
 
 /** State của slot picker */
 const state = {
   selectedSlot: null,
-  bookedSlots:  [],
-  loading:      false,
   currentDate:  null,
 };
 
@@ -51,7 +40,7 @@ export function initSlotPicker(gridElementId, onSelect) {
  * Load danh sách slot cho một ngày và render lại grid.
  * @param {string} date - YYYY-MM-DD
  */
-export async function loadSlotsForDate(date) {
+export function loadSlotsForDate(date) {
   if (!slotGridEl) return;
 
   // Nếu không truyền date, lấy ngày hôm nay (YYYY-MM-DD)
@@ -69,19 +58,7 @@ export async function loadSlotsForDate(date) {
   }
 
   state.currentDate = date;
-  state.loading = true;
-  renderSkeleton();
-
-  try {
-    const booked = await fetchBookedSlots(date);
-    state.bookedSlots = Array.isArray(booked) ? booked : [];
-  } catch (err) {
-    console.error('[SlotPicker] Không tải được lịch đặt:', err);
-    state.bookedSlots = [];
-  } finally {
-    state.loading = false;
-    renderSlots();
-  }
+  renderSlots();
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -99,8 +76,6 @@ export function getSelectedSlot() {
  */
 export function resetSlotPicker() {
   state.selectedSlot = null;
-  state.bookedSlots  = [];
-  state.loading      = false;
   state.currentDate  = null;
   renderEmpty('Vui lòng chọn ngày trước');
 }
@@ -109,11 +84,11 @@ export function resetSlotPicker() {
 // RENDERING
 // ─────────────────────────────────────────────────────────────────
 
-/** Render danh sách slot button */
+/** Render danh sách slot button — Cho phép chọn tất cả các giờ */
 function renderSlots() {
   if (!slotGridEl) return;
 
-  if (TIME_SLOTS.length === 0) {
+  if (!TIME_SLOTS || TIME_SLOTS.length === 0) {
     renderEmpty('Hiện chưa có khung giờ nào.');
     return;
   }
@@ -122,58 +97,22 @@ function renderSlots() {
   slotGridEl.className = 'slot-grid';
 
   TIME_SLOTS.forEach((time) => {
-    const isBooked   = state.bookedSlots.includes(time);
     const isSelected = state.selectedSlot === time;
 
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = buildSlotClass(isBooked, isSelected);
+    btn.className = isSelected ? 'slot-item slot-item--selected' : 'slot-item';
     btn.dataset.time = time;
-    btn.disabled = isBooked;
-    btn.setAttribute('aria-label',
-      isBooked
-        ? `${time} — Đã được đặt`
-        : isSelected
-          ? `${time} — Đang chọn`
-          : `Chọn khung giờ ${time}`
-    );
+    btn.setAttribute('aria-label', isSelected ? `${time} — Đang chọn` : `Chọn khung giờ ${time}`);
     btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
     btn.setAttribute('role', 'radio');
 
-    btn.innerHTML = `
-      <span class="slot-time">${time}</span>
-      ${isBooked ? '<span class="slot-status">Đã đặt</span>' : ''}
-    `;
+    btn.innerHTML = `<span class="slot-time">${time}</span>`;
 
-    if (!isBooked) {
-      btn.addEventListener('click', () => handleSlotClick(time));
-    }
+    btn.addEventListener('click', () => handleSlotClick(time));
 
     slotGridEl.appendChild(btn);
   });
-}
-
-/** Xây dựng className cho từng slot */
-function buildSlotClass(isBooked, isSelected) {
-  let cls = 'slot-item';
-  if (isBooked)   cls += ' slot-item--booked';
-  if (isSelected) cls += ' slot-item--selected';
-  return cls;
-}
-
-/** Render skeleton loading */
-function renderSkeleton() {
-  if (!slotGridEl) return;
-  slotGridEl.innerHTML = '';
-  slotGridEl.className = 'slot-grid slot-grid--loading';
-
-  // Render 6 skeleton cards
-  for (let i = 0; i < 6; i++) {
-    const div = document.createElement('div');
-    div.className = 'slot-skeleton';
-    div.setAttribute('aria-hidden', 'true');
-    slotGridEl.appendChild(div);
-  }
 }
 
 /** Render empty / placeholder message */
@@ -189,8 +128,6 @@ function renderEmpty(message = '') {
 
 /** Xử lý khi user click vào một slot */
 function handleSlotClick(time) {
-  if (state.bookedSlots.includes(time)) return;
-
   // Toggle: nếu click vào slot đang chọn → bỏ chọn
   state.selectedSlot = (state.selectedSlot === time) ? null : time;
 
