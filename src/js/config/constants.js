@@ -41,7 +41,7 @@ export const BRAND = {
   facebook: 'https://www.facebook.com/man.nguyen.528647',
   tiktok: 'https://www.tiktok.com/@man.tho.toc',
   instagram: 'https://www.instagram.com/nguyen.anh.man/',
-  phone: '+84901234567',
+  phone: '+84869947020',
 };
 
 /** Validation rules */
