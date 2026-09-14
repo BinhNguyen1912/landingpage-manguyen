@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- SEO Meta -->
+  <title>Mẫnthợtóc — Đặt lịch cắt tóc nam | nguyen.anh.man</title>
+  <meta name="description" content="Trang cá nhân và đặt lịch cắt tóc nam của Mẫnthợtóc (nguyen.anh.man). Xem các mẫu tóc, liên hệ và đặt lịch hẹn trực tiếp." />
+  <meta name="keywords" content="cắt tóc nam, thợ tóc, Mẫn thợ tóc, đặt lịch cắt tóc, kiểu tóc nam đẹp" />
+  <meta name="author" content="nguyen.anh.man" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mẫnthợtóc — Đặt lịch cắt tóc nam" />
+  <meta property="og:description" content="Đặt lịch cắt tóc với Mẫn — thợ tóc nam chuyên nghiệp. Xem mẫu tóc, liên hệ tư vấn và đặt hẹn nhanh chóng." />
+  <meta property="og:image" content="/public/assets/images/avatar.webp" />
+  <meta property="og:url" content="https://mannguyen.vercel.app" />
+  <meta property="og:locale" content="vi_VN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mẫnthợtóc — Đặt lịch cắt tóc nam" />
+  <meta name="twitter:description" content="Đặt lịch cắt tóc với Mẫn — thợ tóc nam chuyên nghiệp." />
+  <meta name="twitter:image" content="/public/assets/images/avatar.webp" />
+
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+  <link rel="apple-touch-icon" href="/public/assets/images/avatar.webp" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/src/css/main.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       APP ROOT
+       ============================================================ -->
+  <div id="app">
+
+    <!-- ─── HERO SECTION ─────────────────────────────────────── -->
+    <header class="hero" role="banner">
+      <!-- Avatar / Portrait Image -->
+      <img
+        id="hero-avatar"
+        class="hero__img"
+        src="/public/assets/images/avatar.webp"
+        alt="Ảnh chân dung Mẫnthợtóc — thợ cắt tóc nam chuyên nghiệp"
+        width="480"
+        height="640"
+        fetchpriority="high"
+        decoding="auto"
+      />
+
+      <!-- Gradient fade overlay -->
+      <div class="hero__gradient" aria-hidden="true"></div>
+
+      <!-- Name & Social Icons -->
+      <div class="hero__content">
+        <h1 class="hero__username">nguyen.anh.man</h1>
+        <p class="hero__display-name">Mẫnthợtóc</p>
+
+        <nav class="hero__socials" aria-label="Mạng xã hội">
+          <!-- TikTok -->
+          <a
+            id="hero-tiktok-link"
+            href="https://www.tiktok.com/@manhto_toc"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hero__social-link"
+            aria-label="TikTok Mẫnthợtóc"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.79a8.18 8.18 0 004.78 1.52V6.87a4.85 4.85 0 01-1.01-.18z"/>
+            </svg>
+          </a>
+
+          <!-- Facebook -->
+          <a
+            id="hero-facebook-link"
+            href="https://facebook.com/manhto.toc"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hero__social-link"
+            aria-label="Facebook Mẫnthợtóc"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ─── MAIN LINKS SECTION ─────────────────────────────── -->
+    <main id="main-content">
+
+      <!-- Primary CTA — Đặt lịch -->
+      <section class="links-section" aria-label="Đặt lịch">
+        <button
+          id="btn-open-booking"
+          class="btn-cta"
+          type="button"
+          aria-haspopup="dialog"
+          aria-expanded="false"
+        >
+          <!-- Calendar Icon -->
+          <span class="btn-cta__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </span>
+          <span class="btn-cta__text">Đặt lịch với Mẫn.</span>
+          <span class="btn-cta__arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 2-Column Button Grid -->
+        <div class="links-grid" role="list">
+
+          <!-- Facebook -->
+          <a
+            id="btn-facebook"
+            href="https://facebook.com/manhto.toc"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-grid"
+            role="listitem"
+            aria-label="Truy cập Facebook Mẫnthợtóc"
+          >
+            <span class="btn-grid__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </span>
+            <span class="btn-grid__text">Facebook</span>
+            <span class="btn-grid__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- TikTok -->
+          <a
+            id="btn-tiktok"
+            href="https://www.tiktok.com/@manhto_toc"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-grid"
+            role="listitem"
+            aria-label="Truy cập TikTok Mẫnthợtóc"
+          >
+            <span class="btn-grid__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.79a8.18 8.18 0 004.78 1.52V6.87a4.85 4.85 0 01-1.01-.18z"/>
+              </svg>
+            </span>
+            <span class="btn-grid__text">TikTok</span>
+            <span class="btn-grid__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Instagram -->
+          <a
+            id="btn-instagram"
+            href="https://instagram.com/manhto.toc"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-grid"
+            role="listitem"
+            aria-label="Truy cập Instagram Mẫnthợtóc"
+          >
+            <span class="btn-grid__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </span>
+            <span class="btn-grid__text">Instagram</span>
+            <span class="btn-grid__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Kiểu tóc nam -->
+          <a
+            id="btn-hairstyle"
+            href="#gallery"
+            class="btn-grid"
+            role="listitem"
+            aria-label="Xem kiểu tóc nam và tư vấn"
+          >
+            <span class="btn-grid__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+              </svg>
+            </span>
+            <span class="btn-grid__text">Kiểu tóc nam</span>
+            <span class="btn-grid__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Đánh giá khách hàng -->
+          <a
+            id="btn-reviews"
+            href="https://facebook.com/manhto.toc/reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-grid"
+            role="listitem"
+            aria-label="Xem đánh giá từ khách hàng"
+          >
+            <span class="btn-grid__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </span>
+            <span class="btn-grid__text">Đánh giá</span>
+            <span class="btn-grid__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+
+          <!-- Địa chỉ & Liên hệ -->
+          <a
+            id="btn-address"
+            href="tel:+84901234567"
+            class="btn-grid"
+            role="listitem"
+            aria-label="Địa chỉ và liên hệ Mẫnthợtóc"
+          >
+            <span class="btn-grid__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </span>
+            <span class="btn-grid__text">Liên hệ</span>
+            <span class="btn-grid__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+
+        </div><!-- /.links-grid -->
+      </section>
+
+      <!-- ─── GALLERY SECTION ────────────────────────────── -->
+      <section id="gallery" class="gallery-section" aria-label="Bộ sưu tập mẫu tóc">
+        <div class="section-header">
+          <h2 class="section-title">Công việc của mình</h2>
+          <span class="section-subtitle">Gallery</span>
+        </div>
+
+        <!-- Hairstyle Gallery Grid -->
+        <div class="gallery-grid" role="list" aria-label="Ảnh mẫu tóc">
+          <div class="gallery-item" role="listitem">
+            <img
+              class="gallery-item__img"
+              data-gallery-index="0"
+              src=""
+              alt="Mẫu tóc nam 1 — Mẫnthợtóc"
+              loading="lazy"
+              decoding="async"
+              width="320"
+              height="320"
+            />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img
+              class="gallery-item__img"
+              data-gallery-index="1"
+              src=""
+              alt="Mẫu tóc nam 2 — Mẫnthợtóc"
+              loading="lazy"
+              decoding="async"
+              width="160"
+              height="160"
+            />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img
+              class="gallery-item__img"
+              data-gallery-index="2"
+              src=""
+              alt="Mẫu tóc nam 3 — Mẫnthợtóc"
+              loading="lazy"
+              decoding="async"
+              width="160"
+              height="160"
+            />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img
+              class="gallery-item__img"
+              data-gallery-index="3"
+              src=""
+              alt="Mẫu tóc nam 4 — Mẫnthợtóc"
+              loading="lazy"
+              decoding="async"
+              width="160"
+              height="160"
+            />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img
+              class="gallery-item__img"
+              data-gallery-index="4"
+              src=""
+              alt="Mẫu tóc nam 5 — Mẫnthợtóc"
+              loading="lazy"
+              decoding="async"
+              width="160"
+              height="160"
+            />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img
+              class="gallery-item__img"
+              data-gallery-index="5"
+              src=""
+              alt="Mẫu tóc nam 6 — Mẫnthợtóc"
+              loading="lazy"
+              decoding="async"
+              width="160"
+              height="160"
+            />
+          </div>
+        </div>
+
+        <!-- Consultation CTA -->
+        <div class="consultation-cta">
+          <p class="consultation-cta__text">
+            Muốn được tư vấn kiểu tóc phù hợp?<br />
+            <strong>Liên hệ để được tư vấn kỹ hơn.</strong>
+          </p>
+          <button
+            id="btn-consult-booking"
+            class="btn-cta"
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <span class="btn-cta__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </span>
+            <span class="btn-cta__text">Đặt lịch ngay</span>
+            <span class="btn-cta__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+      </section>
+
+      <!-- ─── PAGE FOOTER ─────────────────────────────────── -->
+      <footer class="page-footer" role="contentinfo">
+        <p class="page-footer__text">© 2026 Mẫnthợtóc · nguyen.anh.man</p>
+      </footer>
+
+    </main><!-- /#main-content -->
+
+  </div><!-- /#app -->
+
+
+  <!-- ============================================================
+       BOOKING MODAL / BOTTOM SHEET
+       ============================================================ -->
+
+  <!-- Backdrop -->
+  <div
+    id="modal-backdrop"
+    class="modal-backdrop"
+    role="presentation"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Bottom Sheet -->
+  <div
+    id="booking-sheet"
+    class="booking-sheet"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="sheet-title"
+    aria-describedby="sheet-subtitle"
+  >
+    <!-- Handle bar -->
+    <div class="sheet-handle" aria-hidden="true">
+      <div class="sheet-handle__bar"></div>
+    </div>
+
+    <!-- Sheet Header -->
+    <div class="sheet-header">
+      <div>
+        <h2 id="sheet-title" class="sheet-header__title">Đặt lịch với Mẫn</h2>
+        <p id="sheet-subtitle" class="sheet-header__subtitle">Điền thông tin để đặt lịch cắt tóc</p>
+      </div>
+      <button
+        id="btn-close-sheet"
+        class="sheet-close"
+        type="button"
+        aria-label="Đóng cửa sổ đặt lịch"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Sheet Body — State: FORM -->
+    <div id="view-form" class="sheet-body booking-view is-active">
+
+      <!-- Global error alert (booking conflict) -->
+      <div id="booking-global-error" class="alert-error" style="display:none;" role="alert" aria-live="assertive">
+        <span class="alert-error__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </span>
+        <p id="booking-global-error-text" class="alert-error__text"></p>
+      </div>
+
+      <form id="booking-form" novalidate>
+
+        <!-- ─ BƯỚC 1: Thông tin cá nhân ─────────────────── -->
+        <p class="form-section-title">Thông tin của bạn</p>
+
+        <!-- Họ và tên -->
+        <div class="form-group">
+          <label class="form-label" for="field-name">Họ và tên</label>
+          <input
+            id="field-name"
+            name="name"
+            type="text"
+            class="form-input"
+            placeholder="Nhập họ và tên..."
+            autocomplete="name"
+            maxlength="100"
+            required
+            aria-required="true"
+            aria-describedby="error-name"
+          />
+          <span id="error-name" class="form-error" role="alert" style="display:none;"></span>
+        </div>
+
+        <!-- Số điện thoại -->
+        <div class="form-group">
+          <label class="form-label" for="field-phone">Số điện thoại</label>
+          <input
+            id="field-phone"
+            name="phone"
+            type="tel"
+            class="form-input"
+            placeholder="09xxxxxxxx"
+            autocomplete="tel"
+            maxlength="12"
+            inputmode="numeric"
+            required
+            aria-required="true"
+            aria-describedby="error-phone"
+          />
+          <span id="error-phone" class="form-error" role="alert" style="display:none;"></span>
+        </div>
+
+        <!-- ─ BƯỚC 2: Chọn ngày ──────────────────────── -->
+        <p class="form-section-title">Chọn ngày &amp; giờ</p>
+
+        <!-- Ngày cắt tóc -->
+        <div class="form-group">
+          <label class="form-label" for="field-date">Ngày cắt tóc</label>
+          <div class="date-input-wrapper">
+            <input
+              id="field-date"
+              name="bookingDate"
+              type="date"
+              class="form-input"
+              required
+              aria-required="true"
+              aria-describedby="error-date"
+            />
+            <span class="date-input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </span>
+          </div>
+          <span id="error-date" class="form-error" role="alert" style="display:none;"></span>
+        </div>
+
+        <!-- Khung giờ -->
+        <div class="form-group">
+          <label class="form-label" for="slot-grid-label">
+            Khung giờ
+            <span id="slot-selected-display"></span>
+          </label>
+          <div
+            id="slot-grid"
+            class="slot-grid"
+            role="group"
+            aria-labelledby="slot-grid-label"
+            aria-describedby="error-time"
+          >
+            <!-- Slots are rendered dynamically via JS -->
+            <p class="slots-empty">Vui lòng chọn ngày trước</p>
+          </div>
+          <span id="error-time" class="form-error" role="alert" style="display:none;"></span>
+        </div>
+
+        <!-- ─ BƯỚC 3: Ghi chú ──────────────────────── -->
+        <p class="form-section-title">Ghi chú <span style="font-size:var(--text-xs);color:var(--color-text-muted);text-transform:none;">(không bắt buộc)</span></p>
+
+        <div class="form-group">
+          <label class="form-label" for="field-note">
+            Yêu cầu kiểu tóc
+            <span>(tùy chọn)</span>
+          </label>
+          <textarea
+            id="field-note"
+            name="note"
+            class="form-input form-textarea"
+            placeholder="VD: Muốn cắt layer, giữ mái, tóc thẳng..."
+            maxlength="500"
+            rows="3"
+            aria-describedby="error-note note-char-count"
+          ></textarea>
+          <span id="note-char-count" class="form-error" style="display:none; color: var(--color-text-muted);" aria-live="polite"></span>
+          <span id="error-note" class="form-error" role="alert" style="display:none;"></span>
+        </div>
+
+      </form>
+    </div><!-- /#view-form -->
+
+    <!-- Sheet Body — State: LOADING -->
+    <div id="view-loading" class="sheet-body booking-view">
+      <div class="state-loading">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p aria-live="polite">Đang đặt lịch...</p>
+      </div>
+    </div>
+
+    <!-- Sheet Body — State: SUCCESS -->
+    <div id="view-success" class="sheet-body booking-view">
+      <div class="state-success">
+        <div class="success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3 class="state-success__title">✓ Đặt lịch thành công</h3>
+        <p class="state-success__message">
+          Mẫnthợtóc đã nhận được thông tin đặt lịch của bạn.
+        </p>
+        <dl class="state-success__details" id="success-details">
+          <div class="success-detail-row">
+            <dt>Tên</dt>
+            <dd id="success-name">—</dd>
+          </div>
+          <div class="success-detail-row">
+            <dt>Ngày</dt>
+            <dd id="success-date">—</dd>
+          </div>
+          <div class="success-detail-row">
+            <dt>Giờ</dt>
+            <dd id="success-time">—</dd>
+          </div>
+          <div class="success-detail-row">
+            <dt>Điện thoại</dt>
+            <dd id="success-phone">—</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <!-- Sheet Footer (only for form view) -->
+    <div id="sheet-footer" class="sheet-footer">
+      <button
+        id="btn-submit-booking"
+        type="submit"
+        form="booking-form"
+        class="btn-submit"
+      >
+        Xác nhận đặt lịch
+      </button>
+    </div>
+
+    <!-- Sheet Footer for success view -->
+    <div id="sheet-footer-success" class="sheet-footer" style="display:none;">
+      <button
+        id="btn-back-home"
+        type="button"
+        class="btn-submit"
+      >
+        Quay lại trang chính
+      </button>
+    </div>
+
+  </div><!-- /#booking-sheet -->
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Scripts — deferred for performance -->
+  <script type="module" src="/src/js/app.js"></script>
+
+</body>
+</html>

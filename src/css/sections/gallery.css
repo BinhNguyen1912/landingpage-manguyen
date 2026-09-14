@@ -1,0 +1,128 @@
+/* ============================================================
+   GALLERY SECTION — Công việc của mình
+   Mẫnthợtóc Landing Page
+   ============================================================ */
+
+/* ─── Section Wrapper ────────────────────────────────────── */
+.gallery-section {
+  padding: var(--space-8) 0 var(--space-10);
+}
+
+.section-header {
+  padding: 0 var(--space-5) var(--space-5);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.section-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--tracking-tight);
+}
+
+.section-subtitle {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* ─── Gallery Grid ───────────────────────────────────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+/* ─── Gallery Item ───────────────────────────────────────── */
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--color-bg-card);
+  cursor: pointer;
+}
+
+.gallery-item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+.gallery-item__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--duration-slow) var(--ease-out),
+              opacity  var(--duration-slow) var(--ease-out);
+  display: block;
+}
+
+.gallery-item:hover .gallery-item__img {
+  transform: scale(1.05);
+}
+
+/* Skeleton loading placeholder */
+.gallery-item__img[loading="lazy"] {
+  opacity: 0;
+}
+
+.gallery-item__img.loaded {
+  opacity: 1;
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+/* ─── Consultation CTA Banner ─────────────────────────────── */
+.consultation-cta {
+  margin: var(--space-6) var(--space-5);
+  padding: var(--space-5) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-bg-card);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glow effect */
+.consultation-cta::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.consultation-cta__text {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+.consultation-cta__text strong {
+  color: var(--color-text-primary);
+  font-weight: var(--font-semibold);
+}
+
+/* ─── Footer spacer ──────────────────────────────────────── */
+.page-footer {
+  padding: var(--space-6) var(--space-5);
+  padding-bottom: calc(var(--space-6) + env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+.page-footer__text {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: var(--tracking-wide);
+}

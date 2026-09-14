@@ -1,0 +1,252 @@
+/* ============================================================
+   BUTTONS — Pill Style
+   Mẫnthợtóc Landing Page
+   ============================================================ */
+
+/* ─── Base Button Reset ──────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color     var(--duration-fast) var(--ease-out),
+    opacity          var(--duration-fast) var(--ease-out),
+    transform        var(--duration-fast) var(--ease-spring);
+  user-select: none;
+  -webkit-user-select: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ─── CTA Primary — Full Width Pill ─────────────────────── */
+/* Usage: "Đặt lịch với Mẫn." — large pill, white border     */
+.btn-cta {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-4) var(--space-5);
+  background-color: transparent;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  gap: var(--space-4);
+  transition:
+    background-color var(--duration-normal) var(--ease-out),
+    border-color     var(--duration-normal) var(--ease-out),
+    transform        var(--duration-fast)   var(--ease-spring);
+}
+
+.btn-cta:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-border-strong);
+}
+
+.btn-cta:active {
+  transform: scale(0.985);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Icon circle on the left */
+.btn-cta__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  flex-shrink: 0;
+}
+
+.btn-cta__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Text block in the center */
+.btn-cta__text {
+  flex: 1;
+  text-align: left;
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Arrow icon on the right */
+.btn-cta__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  transition: transform var(--duration-normal) var(--ease-out),
+              color    var(--duration-normal) var(--ease-out);
+}
+
+.btn-cta:hover .btn-cta__arrow {
+  transform: translateX(3px);
+  color: var(--color-text-primary);
+}
+
+.btn-cta__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ─── Grid Button — Small Pill (2-column grid) ───────────── */
+/* Usage: Social links & info buttons (FB, TikTok, IG, ...)  */
+.btn-grid {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background-color: transparent;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-primary);
+  gap: var(--space-3);
+  min-height: 64px;
+  transition:
+    background-color var(--duration-normal) var(--ease-out),
+    border-color     var(--duration-normal) var(--ease-out),
+    transform        var(--duration-fast)   var(--ease-spring);
+}
+
+.btn-grid:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-border-strong);
+}
+
+.btn-grid:active {
+  transform: scale(0.97);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Icon circle */
+.btn-grid__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 50%;
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  flex-shrink: 0;
+}
+
+.btn-grid__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Text block */
+.btn-grid__text {
+  flex: 1;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--tracking-tight);
+  text-align: left;
+}
+
+/* Arrow */
+.btn-grid__arrow {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform var(--duration-normal) var(--ease-out),
+              color    var(--duration-normal) var(--ease-out);
+}
+
+.btn-grid:hover .btn-grid__arrow {
+  transform: translateX(3px);
+  color: var(--color-text-primary);
+}
+
+.btn-grid__arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ─── Submit Button (Booking Form) ──────────────────────── */
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-tight);
+  transition:
+    background-color var(--duration-normal) var(--ease-out),
+    opacity          var(--duration-normal) var(--ease-out),
+    transform        var(--duration-fast)   var(--ease-spring);
+}
+
+.btn-submit:hover:not(:disabled) {
+  background-color: #e5e5e5;
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-submit--loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ─── Text / Ghost button ────────────────────────────────── */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  border-radius: var(--radius-pill);
+  transition: color var(--duration-fast) var(--ease-out),
+              background-color var(--duration-fast) var(--ease-out);
+}
+
+.btn-ghost:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-accent-dim);
+}

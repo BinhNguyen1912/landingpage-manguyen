@@ -1,0 +1,103 @@
+/* ============================================================
+   MAIN CSS — Bundle
+   Mẫnthợtóc Landing Page
+   ============================================================ */
+
+/* ─── 1. Design Tokens ───────────────────────────────────── */
+@import './base/variables.css';
+
+/* ─── 2. Reset & Base ────────────────────────────────────── */
+@import './base/reset.css';
+
+/* ─── 3. Components ──────────────────────────────────────── */
+@import './components/buttons.css';
+@import './components/modal.css';
+
+/* ─── 4. Sections ────────────────────────────────────────── */
+@import './sections/hero.css';
+@import './sections/booking.css';
+@import './sections/gallery.css';
+
+/* ============================================================
+   GLOBAL PAGE LAYOUT
+   ============================================================ */
+
+/* ─── Main wrapper ───────────────────────────────────────── */
+#app {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  min-height: 100svh;
+  background-color: var(--color-bg-primary);
+  position: relative;
+}
+
+/* ─── Buttons Section (below hero) ───────────────────────── */
+.links-section {
+  padding: var(--space-5) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ─── 2-Column Grid ──────────────────────────────────────── */
+.links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+/* ─── Section spacing ─────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: var(--space-2) var(--space-5);
+  opacity: 0.5;
+}
+
+/* ─── Toast Notification ─────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: calc(var(--space-6) + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  max-width: calc(var(--max-width) - var(--space-8));
+  width: calc(100% - var(--space-8));
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-align: center;
+  z-index: var(--z-toast);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity  var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out);
+}
+
+.toast.is-visible {
+  opacity: 1;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast--error {
+  background-color: #1a0a0a;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  color: var(--color-error);
+}
+
+.toast--success {
+  background-color: #0a1a0e;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: var(--color-success);
+}
+
+/* ─── Responsive: wider screens ──────────────────────────── */
+@media (min-width: 520px) {
+  #app {
+    border-left:  1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+  }
+}
