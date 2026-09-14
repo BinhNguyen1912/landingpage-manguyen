@@ -53,14 +53,19 @@ export function initSlotPicker(gridElementId, onSelect) {
  */
 export async function loadSlotsForDate(date) {
   if (!slotGridEl) return;
+
+  // Nếu không truyền date, lấy ngày hôm nay (YYYY-MM-DD)
   if (!date) {
-    renderEmpty('Vui lòng chọn ngày trước');
-    return;
+    const now = new Date();
+    const vnTime = new Date(now.getTime() + 7 * 60 * 60 * 1000);
+    date = vnTime.toISOString().slice(0, 10);
   }
 
-  // Reset nếu đổi sang ngày khác
+  // Reset slot đã chọn nếu đổi sang ngày khác
   if (state.currentDate !== date) {
     state.selectedSlot = null;
+    const displayEl = document.getElementById('slot-selected-display');
+    if (displayEl) displayEl.textContent = '';
   }
 
   state.currentDate = date;

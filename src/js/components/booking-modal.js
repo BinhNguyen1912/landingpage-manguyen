@@ -61,10 +61,15 @@ export function initBookingModal() {
   // Khởi tạo slot picker
   initSlotPicker('slot-grid');
 
-  // Set ngày tối thiểu = hôm nay
+  // Set ngày mặc định = hôm nay và load slots ngay từ đầu
   const dateInput = els.dateInput();
   if (dateInput) {
-    dateInput.min = getTodayISOString();
+    const today = getTodayISOString();
+    dateInput.min = today;
+    if (!dateInput.value) {
+      dateInput.value = today;
+    }
+    loadSlotsForDate(dateInput.value);
   }
 
   // Event listeners
@@ -72,8 +77,9 @@ export function initBookingModal() {
   els.closeBtn()?.addEventListener('click', closeSheet);
   els.backHomeBtn()?.addEventListener('click', handleBackHome);
 
-  // Date change → load slots
+  // Date change / input → load slots
   els.dateInput()?.addEventListener('change', handleDateChange);
+  els.dateInput()?.addEventListener('input', handleDateChange);
 
   // Note character counter
   els.noteInput()?.addEventListener('input', handleNoteInput);
@@ -107,6 +113,17 @@ export function openSheet() {
   const backdrop = els.backdrop();
 
   if (!sheet || !backdrop) return;
+
+  // Đảm bảo ngày có sẵn (mặc định hôm nay) và load danh sách khung giờ ngay lập tức
+  const dateInput = els.dateInput();
+  if (dateInput) {
+    const today = getTodayISOString();
+    dateInput.min = today;
+    if (!dateInput.value) {
+      dateInput.value = today;
+    }
+    loadSlotsForDate(dateInput.value);
+  }
 
   backdrop.classList.add('is-open');
   backdrop.setAttribute('aria-hidden', 'false');
@@ -353,12 +370,16 @@ function resetModal() {
   // Reset form
   els.form()?.reset();
 
-  // Reset slot picker
-  resetSlotPicker();
-
-  // Reset date min
+  // Reset ngày về hôm nay và tự động reload slots
   const dateInput = els.dateInput();
-  if (dateInput) dateInput.min = getTodayISOString();
+  if (dateInput) {
+    const today = getTodayISOString();
+    dateInput.min = today;
+    dateInput.value = today;
+    loadSlotsForDate(today);
+  } else {
+    resetSlotPicker();
+  }
 
   // Clear errors
   clearAllErrors();
