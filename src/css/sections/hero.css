@@ -111,3 +111,24 @@
   width: 18px;
   height: 18px;
 }
+
+/* ─── Address ────────────────────────────────────────────── */
+.hero__address {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-tight);
+}
+
+.hero__address-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  stroke: currentColor;
+  opacity: 0.85;
+}
+

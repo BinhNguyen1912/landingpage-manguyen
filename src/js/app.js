@@ -26,6 +26,10 @@ function applyBrand() {
   const heroFacebook = document.getElementById('hero-facebook-link');
   if (heroFacebook) heroFacebook.href = BRAND.facebook;
 
+  // ─── Địa chỉ trong hero ─────────────────────────────────────────
+  const heroAddress = document.getElementById('hero-address-text');
+  if (heroAddress && BRAND.address) heroAddress.textContent = BRAND.address;
+
   // ─── Grid buttons ─────────────────────────────────────────────
   const btnFacebook = document.getElementById('btn-facebook');
   if (btnFacebook) btnFacebook.href = BRAND.facebook;

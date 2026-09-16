@@ -42,6 +42,7 @@ export const BRAND = {
   tiktok: 'https://www.tiktok.com/@man.tho.toc',
   instagram: 'https://www.instagram.com/nguyen.anh.man/',
   phone: '+84869947020',
+  address: 'Toà A1, Chung Cư Hacom',
 };
 
 /** Validation rules */
@@ -91,12 +92,12 @@ export const IMAGES = {
 
   /** Bộ sưu tập mẫu tóc — Công việc của mình */
   GALLERY: [
-    '/public/assets/images/gallery/mot.jpg',
-    '/public/assets/images/gallery/mot.jpg',
-    '/public/assets/images/gallery/mot.jpg',
-    '/public/assets/images/gallery/mot.jpg',
-    '/public/assets/images/gallery/mot.jpg',
-    '/public/assets/images/gallery/mot.jpg',
+    '/public/assets/images/gallery/mot.jpeg',
+    '/public/assets/images/gallery/hai.jpeg',
+    '/public/assets/images/gallery/ba.jpeg',
+    '/public/assets/images/gallery/bon.jpeg',
+    '/public/assets/images/gallery/nam.jpeg',
+    '/public/assets/images/gallery/sau.jpeg',
   ],
 
   /** Ảnh phong cách / cuộc sống cá nhân — My Life */
