@@ -42,7 +42,7 @@ export const BRAND = {
   tiktok: 'https://www.tiktok.com/@man.tho.toc',
   instagram: 'https://www.instagram.com/nguyen.anh.man/',
   phone: '+84869947020',
-  address: 'Toà A1, Chung Cư Hacom',
+  address: 'Chung cư hacom, toà A1, phường Phan Rang, tỉnh Khánh Hoà',
 };
 
 /** Validation rules */
@@ -69,35 +69,37 @@ export const API_TIMEOUT_MS = 10_000;
  *
  * Khi muốn đổi ảnh, chỉ cần sửa URL tại đây.
  * HTML và JS sẽ đọc từ các biến này thay vì hardcode path.
- *
- * Cấu trúc thư mục:
- *   public/
- *   └── assets/
- *       └── images/
- *           ├── avatar.webp              ← Ảnh chân dung chính (hero)
- *           ├── gallery/
- *           │   ├── hairstyle-01.webp    ← Ảnh mẫu tóc (slot đầu, hiển thị to hơn)
- *           │   ├── hairstyle-02.webp
- *           │   ├── hairstyle-03.webp
- *           │   ├── hairstyle-04.webp
- *           │   ├── hairstyle-05.webp
- *           │   └── hairstyle-06.webp
- *           └── life/
- *               ├── life-01.webp         ← Ảnh phong cách / cuộc sống cá nhân
- *               └── life-02.webp
- */
+   * Cấu trúc thư mục:
+   *   public/
+   *   └── assets/
+   *       └── images/
+   *           ├── avatar.jpg               ← Ảnh chân dung chính (hero)
+   *           └── gallery/
+   *               ├── mot.jpeg             ← Ảnh mẫu tóc (slot 1, hiển thị to hơn 2x2)
+   *               ├── hai.jpeg
+   *               ├── ba.jpeg
+   *               ├── bon.jpeg
+   *               ├── nam.jpeg
+   *               ├── sau.jpeg
+   *               ├── bay.jpg
+   *               ├── tam.jpg
+   *               └── chin.jpg
+   */
 export const IMAGES = {
   /** Ảnh chân dung chính hiển thị ở hero section */
   AVATAR: '/public/assets/images/avatar.jpg',
 
-  /** Bộ sưu tập mẫu tóc — Công việc của mình */
+  /** Bộ sưu tập mẫu tóc — Lookbook tóc nam (9 ảnh) */
   GALLERY: [
-    '/public/assets/images/gallery/mot.jpeg',
-    '/public/assets/images/gallery/hai.jpeg',
-    '/public/assets/images/gallery/ba.jpeg',
+    '/public/assets/images/gallery/bay.jpg',
+    '/public/assets/images/gallery/tam.jpg',
+    '/public/assets/images/gallery/chin.jpg',
     '/public/assets/images/gallery/bon.jpeg',
     '/public/assets/images/gallery/nam.jpeg',
     '/public/assets/images/gallery/sau.jpeg',
+    '/public/assets/images/gallery/mot.jpeg',
+    '/public/assets/images/gallery/hai.jpeg',
+    '/public/assets/images/gallery/ba.jpeg',
   ],
 
   /** Ảnh phong cách / cuộc sống cá nhân — My Life */

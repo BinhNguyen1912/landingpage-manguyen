@@ -147,16 +147,22 @@ export function setBodyScrollLock(locked) {
 export function initLazyImages() {
   const images = document.querySelectorAll('img[loading="lazy"]');
 
+  const markLoaded = (img) => {
+    img.classList.add('loaded');
+    const parentItem = img.closest('.gallery-item');
+    if (parentItem) parentItem.classList.add('loaded');
+  };
+
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const img = entry.target;
-            img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
-            img.addEventListener('error', () => img.classList.add('loaded'), { once: true });
+            img.addEventListener('load', () => markLoaded(img), { once: true });
+            img.addEventListener('error', () => markLoaded(img), { once: true });
             // Nếu đã cached thì load ngay
-            if (img.complete) img.classList.add('loaded');
+            if (img.complete && img.naturalWidth > 0) markLoaded(img);
             observer.unobserve(img);
           }
         });
@@ -167,6 +173,6 @@ export function initLazyImages() {
     images.forEach((img) => observer.observe(img));
   } else {
     // Fallback cho trình duyệt cũ
-    images.forEach((img) => img.classList.add('loaded'));
+    images.forEach((img) => markLoaded(img));
   }
 }

@@ -1,5 +1,5 @@
 /* ============================================================
-   GALLERY SECTION — Công việc của mình
+   GALLERY SECTION — Lookbook tóc nam
    Mẫnthợtóc Landing Page
    ============================================================ */
 
@@ -34,21 +34,45 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
+  background-color: var(--color-bg-primary);
 }
 
 /* ─── Gallery Item ───────────────────────────────────────── */
 .gallery-item {
   position: relative;
+  width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background-color: var(--color-bg-card);
   cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.gallery-item:first-child {
-  grid-column: span 2;
-  grid-row: span 2;
-  aspect-ratio: auto;
+/* Skeleton shimmer khi ảnh chưa tải xong */
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  background-size: 200% 100%;
+  animation: galleryShimmer 1.8s infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gallery-item.loaded::before {
+  display: none;
+}
+
+@keyframes galleryShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 .gallery-item__img {
@@ -61,7 +85,8 @@
   display: block;
 }
 
-.gallery-item:hover .gallery-item__img {
+.gallery-item:hover .gallery-item__img,
+.gallery-item:focus-visible .gallery-item__img {
   transform: scale(1.05);
 }
 
@@ -74,6 +99,92 @@
   opacity: 1;
   transition: opacity var(--duration-slow) var(--ease-out),
               transform var(--duration-slow) var(--ease-out);
+}
+
+/* ─── Gallery Lightbox Modal ────────────────────────────── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-normal) var(--ease-out),
+              visibility var(--duration-normal) var(--ease-out);
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+}
+
+.lightbox__content {
+  position: relative;
+  z-index: 1;
+  max-width: min(100%, 460px);
+  max-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.95);
+  transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+.lightbox.is-open .lightbox__content {
+  transform: scale(1);
+}
+
+.lightbox__img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: -46px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+
+.lightbox__close:hover,
+.lightbox__close:active {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.08);
+}
+
+.lightbox__close svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* ─── Consultation CTA Banner ─────────────────────────────── */
